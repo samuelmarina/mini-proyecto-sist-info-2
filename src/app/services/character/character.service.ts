@@ -21,4 +21,8 @@ export class CharacterService {
   getCharacterByName(name) {
     return this.http.get(this.root_url + "?name=" + name);
   }
+
+  getCharactersByPage(page) {
+    return this.http.get(this.root_url + "?page=" + page);
+  }
 }
