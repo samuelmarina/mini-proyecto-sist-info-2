@@ -7,8 +7,9 @@ export interface Character {
     gender: string,
     origin: Origin,
     location: Location,
+    image: string
     episode: Array<string>,
-    imageUrl: string,
+    url: string,
     created: string,
     haveLike?: boolean,
     likes: number
