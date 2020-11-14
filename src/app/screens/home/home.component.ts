@@ -69,8 +69,6 @@ export class HomeComponent implements OnInit {
     this.params.gender = gender;
     this.params['type'] = type;
     this.params['species'] = species;
-    console.log(this.params);
-    console.log(gender);
     this.setCharacters(this.params);
   }
 
