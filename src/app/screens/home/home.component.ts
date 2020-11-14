@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Character } from 'src/app/schemas/character';
 import { CharacterService } from 'src/app/services/character/character.service';
 
 @Component({
@@ -7,13 +8,20 @@ import { CharacterService } from 'src/app/services/character/character.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  character;
+  currentCharacters: Character[];
+  currentPage: number;
 
   constructor(private charService: CharacterService) { 
-    this.charService.getCharacterById(1).subscribe(x => this.character = x);
+    this.currentPage = 1;
+    this.setCharacters();
   }
 
   ngOnInit(): void {
   }
 
+  setCharacters() {
+    this.charService.getCharactersByPage(this.currentPage).subscribe(res => {
+      this.currentCharacters = res['results'] as Character[];
+    })
+  }
 }
