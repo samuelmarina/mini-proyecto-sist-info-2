@@ -14,6 +14,7 @@ import { LoginComponent } from './screens/login/login.component';
 import { environment } from 'src/environments/environment';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { AuthService } from './services/auth/auth.service';
+import { AuthGuardService } from './services/auth-guard/auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { AuthService } from './services/auth/auth.service';
       },
       {
         path: "fav",
-        component: FavoritesComponent
+        component: FavoritesComponent,
+        canActivate: [AuthGuardService]
       },
       {
         path: "character/:id",
@@ -49,7 +51,8 @@ import { AuthService } from './services/auth/auth.service';
     ])
   ],
   providers: [
-    AuthService
+    AuthService,
+    AuthGuardService
   ],
   bootstrap: [AppComponent]
 })
