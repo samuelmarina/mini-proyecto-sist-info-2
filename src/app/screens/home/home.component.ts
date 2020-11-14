@@ -30,7 +30,11 @@ export class HomeComponent implements OnInit {
 
     this.params = {
       page: this.currentPage,
-      name: ""
+      name: "",
+      status: "",
+      species: "",
+      type: "",
+      gender: ""
     }
 
     this.setCharacters(this.params);

@@ -11,7 +11,12 @@ export class CharacterService {
   constructor(private http: HttpClient) { }
 
   getCharacters(params) {
-    return this.http.get(this.root_url + "?name=" + params.name + "&page=" + params.page);
+    return this.http.get(this.root_url + "?name=" + params.name + 
+      "&status=" + params.status +
+      "&species" + params.species + 
+      "&type" + params.type +
+      "&gender" + params.gender +
+      "&page=" + params.page);
   }
 
   getCharacterById(id) {
