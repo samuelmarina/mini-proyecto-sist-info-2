@@ -6,7 +6,7 @@ import {  AngularFireDatabaseModule } from "@angular/fire/database"
 import {  AngularFireAuthModule } from "@angular/fire/auth"
 import { HttpClientModule } from "@angular/common/http"
 import { MatIconModule } from '@angular/material/icon'
-
+import { FormsModule } from "@angular/forms"
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './screens/home/home.component';
@@ -41,6 +41,7 @@ import { PaginationButtonsComponent } from './components/pagination-buttons/pagi
     AngularFireDatabaseModule,
     HttpClientModule,
     MatIconModule,
+    FormsModule,
     RouterModule.forRoot([
       {
         path: '',
