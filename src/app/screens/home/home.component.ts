@@ -12,12 +12,14 @@ export class HomeComponent implements OnInit {
   currentCharacters: Character[];
   currentPage: number;
   isLoggedIn: boolean;
+  theBoundCallback: Function;
 
   constructor(
     private charService: CharacterService,
     private auth: AuthService) { 
     this.currentPage = 1;
-    this.setCharacters();
+    this.setCharacters(1);
+    this.theBoundCallback = this.setCharacters.bind(this);
 
     auth.user$.subscribe(user => {
       this.isLoggedIn = user ? true : false;
@@ -27,8 +29,8 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  setCharacters() {
-    this.charService.getCharactersByPage(this.currentPage).subscribe(res => {
+  setCharacters(page) {
+    this.charService.getCharactersByPage(page).subscribe(res => {
       this.currentCharacters = res['results'] as Character[];
     })
   }
