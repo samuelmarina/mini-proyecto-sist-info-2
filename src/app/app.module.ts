@@ -23,6 +23,8 @@ import { CharacterListComponent } from './components/character-list/character-li
 import { PaginationButtonsComponent } from './components/pagination-buttons/pagination-buttons.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { FilterComponent } from './components/filter/filter.component';
+import { UserService } from './services/user/user.service';
+import { FavoritesService } from './services/favorites/favorites.service';
 
 @NgModule({
   declarations: [
@@ -69,7 +71,9 @@ import { FilterComponent } from './components/filter/filter.component';
   ],
   providers: [
     AuthService,
-    AuthGuardService
+    AuthGuardService,
+    UserService,
+    FavoritesService,
   ],
   bootstrap: [AppComponent]
 })
