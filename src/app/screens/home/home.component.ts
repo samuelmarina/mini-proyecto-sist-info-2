@@ -12,6 +12,7 @@ export class HomeComponent implements OnInit {
   currentCharacters: Character[];
   currentPage: number;
   isLoggedIn: boolean;
+  params;
   setCharactersCallback: Function;
   searchCharacterCallback: Function;
 
@@ -19,9 +20,15 @@ export class HomeComponent implements OnInit {
     private charService: CharacterService,
     private auth: AuthService) { 
     this.currentPage = 1;
-    this.setCharacters(1);
     this.setCharactersCallback = this.setCharacters.bind(this);
     this.searchCharacterCallback = this.searchCharacter.bind(this);
+
+    this.params = {
+      page: this.currentPage,
+      name: ""
+    }
+
+    this.setCharacters(this.params);
 
     auth.user$.subscribe(user => {
       this.isLoggedIn = user ? true : false;
@@ -31,15 +38,14 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  setCharacters(page) {
-    this.charService.getCharactersByPage(page).subscribe(res => {
+  setCharacters(params) {
+    this.charService.getCharacters(params).subscribe(res => {
       this.currentCharacters = res['results'] as Character[];
     })
   }
 
   searchCharacter(name) {
-    this.charService.getCharacterByName(name).subscribe(res => {
-      this.currentCharacters = res['results'] as Character[];
-    })
+    this.params.name = name;
+    this.setCharacters(this.params);
   }
 }

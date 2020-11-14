@@ -10,6 +10,7 @@ export class PaginationButtonsComponent implements OnInit {
   @Input('next') next: boolean;
   @Input('page') page: number;
   @Input('changePage') changePage: Function;
+  @Input('params') params: Function;
 
   constructor() { }
 
@@ -19,15 +20,15 @@ export class PaginationButtonsComponent implements OnInit {
   nextPage() {
     // if(!this.next) return;
     this.page += 1;
-    this.changePage(this.page);
-    console.log(this.changePage)
+    this.params['page'] = this.page;
+    this.changePage(this.params);
   }
 
   prevPage() {
     // if(!this.prev) return;
     this.page -= 1;
-    this.changePage(this.page);
-    console.log(this.changePage)
+    this.params['page'] = this.page;
+    this.changePage(this.params);
   }
 
 }

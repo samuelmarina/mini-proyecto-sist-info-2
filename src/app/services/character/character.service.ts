@@ -10,8 +10,8 @@ export class CharacterService {
 
   constructor(private http: HttpClient) { }
 
-  getCharacters() {
-    return this.http.get(this.root_url)
+  getCharacters(params) {
+    return this.http.get(this.root_url + "?name=" + params.name + "&page=" + params.page);
   }
 
   getCharacterById(id) {
