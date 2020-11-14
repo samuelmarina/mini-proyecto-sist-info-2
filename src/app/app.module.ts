@@ -19,6 +19,7 @@ import { AuthService } from './services/auth/auth.service';
 import { AuthGuardService } from './services/auth-guard/auth-guard.service';
 import { CharacterCardComponent } from './components/character-card/character-card.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CharacterListComponent } from './components/character-list/character-list.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CharacterComponent,
     LoginComponent,
     NavbarComponent,
-    CharacterCardComponent
+    CharacterCardComponent,
+    CharacterListComponent
   ],
   imports: [
     BrowserModule,

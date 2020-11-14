@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Character } from 'src/app/schemas/character';
 
 @Component({
   selector: 'character-card',
@@ -6,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./character-card.component.css']
 })
 export class CharacterCardComponent implements OnInit {
-  @Input('character') character;
+  @Input('character') character: Character;
   @Input('showActions') showActions;
   likes: number;
   

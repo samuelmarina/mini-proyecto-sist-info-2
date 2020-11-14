@@ -1,7 +1,7 @@
 <div class="card">
-    <img [src]="character.imageUrl" class="card-img-top" alt="character.name">
+    <img [src]="character.image" class="card-img-top" alt="character.name">
     <div class="card-body">
-        <h5 class="card-title">{{ character.name}}</h5>
+        <h5 class="card-title">{{ character.name }}</h5>
         <div *ngIf="showActions">
             <a *ngIf="character.haveLike" (click)="clickLike()">
                 <mat-icon aria-hidden="false" aria-label="Example home icon">favorite</mat-icon>
