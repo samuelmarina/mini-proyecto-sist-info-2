@@ -1,2 +1,3 @@
-<pagination-buttons [changePage]="theBoundCallback" [page]="currentPage"></pagination-buttons>
+<search-bar [searchCharacter]="searchCharacterCallback"></search-bar>
+<pagination-buttons [changePage]="setCharactersCallback" [page]="currentPage"></pagination-buttons>
 <character-list [characters]="currentCharacters" [showActions]="isLoggedIn"></character-list>

@@ -21,6 +21,7 @@ import { CharacterCardComponent } from './components/character-card/character-ca
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CharacterListComponent } from './components/character-list/character-list.component';
 import { PaginationButtonsComponent } from './components/pagination-buttons/pagination-buttons.component';
+import { SearchBarComponent } from './components/search-bar/search-bar.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { PaginationButtonsComponent } from './components/pagination-buttons/pagi
     NavbarComponent,
     CharacterCardComponent,
     CharacterListComponent,
-    PaginationButtonsComponent
+    PaginationButtonsComponent,
+    SearchBarComponent
   ],
   imports: [
     BrowserModule,
