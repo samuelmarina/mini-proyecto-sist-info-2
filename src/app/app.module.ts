@@ -26,6 +26,24 @@ import { environment } from 'src/environments/environment';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFireDatabaseModule,
+    RouterModule.forRoot([
+      {
+        path: '',
+        component: HomeComponent
+      },
+      {
+        path: "fav",
+        component: FavoritesComponent
+      },
+      {
+        path: "character/:id",
+        component: CharacterComponent
+      },
+      {
+        path: "login",
+        component: LoginComponent
+      },
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]
