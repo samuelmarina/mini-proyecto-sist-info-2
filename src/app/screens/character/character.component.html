@@ -1,1 +1,17 @@
-<p>character works!</p>
+<div *ngIf="character" class="media">
+    <img [src]="character.image" class="align-self-start mr-3" alt="...">
+    <div class="media-body">
+        <h5 class="mt-0">{{ character.name }}</h5>
+        <p>Location: {{character.location.name}}</p>
+        <p>Species: {{character.species}}</p>
+        <p>Gender: {{character.gender}}</p>
+        <p>Origin: {{character.origin.name}}</p>
+        <p>Created: {{character.created}}</p>
+        <a *ngIf="character.haveLike">
+            <mat-icon aria-hidden="false" aria-label="Example home icon">favorite</mat-icon>
+        </a>
+        <a *ngIf="!character.haveLike">
+            <mat-icon aria-hidden="false" aria-label="Example home icon">favorite_border</mat-icon>
+        </a>
+    </div>
+</div>
