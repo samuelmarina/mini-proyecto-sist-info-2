@@ -16,6 +16,8 @@ import { environment } from 'src/environments/environment';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { AuthService } from './services/auth/auth.service';
 import { AuthGuardService } from './services/auth-guard/auth-guard.service';
+import { CharacterCardComponent } from './components/character-card/character-card.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { AuthGuardService } from './services/auth-guard/auth-guard.service';
     FavoritesComponent,
     CharacterComponent,
     LoginComponent,
-    NavbarComponent
+    NavbarComponent,
+    CharacterCardComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +53,8 @@ import { AuthGuardService } from './services/auth-guard/auth-guard.service';
         path: "login",
         component: LoginComponent
       },
-    ])
+    ]),
+    BrowserAnimationsModule
   ],
   providers: [
     AuthService,
