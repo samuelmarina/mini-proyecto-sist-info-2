@@ -10,7 +10,7 @@
             <li class="nav-item active">
                 <a class="nav-link" routerLink="/">Home <span class="sr-only">(current)</span></a>
             </li>
-            <li *ngIf="auth.user$" class="nav-item">
+            <li *ngIf="auth.user$ | async as user;" class="nav-item">
                 <a class="nav-link" routerLink="/fav">Favoritos</a>
             </li>
             <ng-template #anonymousUser>
