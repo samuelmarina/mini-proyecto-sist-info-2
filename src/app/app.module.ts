@@ -12,6 +12,7 @@ import { FavoritesComponent } from './screens/favorites/favorites.component';
 import { CharacterComponent } from './screens/character/character.component';
 import { LoginComponent } from './screens/login/login.component';
 import { environment } from 'src/environments/environment';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { environment } from 'src/environments/environment';
     HomeComponent,
     FavoritesComponent,
     CharacterComponent,
-    LoginComponent
+    LoginComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
