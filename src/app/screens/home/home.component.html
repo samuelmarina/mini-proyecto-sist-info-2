@@ -1,4 +1,5 @@
 <search-bar [searchCharacter]="searchCharacterCallback"></search-bar>
+
 <pagination-buttons 
     [changePage]="setCharactersCallback" 
     [page]="currentPage" 
@@ -6,4 +7,11 @@
     [nextPage]="nextPageCallback"
     [prevPage]="prevPageCallback"
     ></pagination-buttons>
-<character-list [characters]="currentCharacters" [showActions]="isLoggedIn"></character-list>
+<div class="row">
+    <div class="col-3">
+        <filter [filterCharacters]="filterCharactersCallback"></filter>
+    </div>
+    <div class="col">
+        <character-list [characters]="currentCharacters" [showActions]="isLoggedIn"></character-list>
+    </div>
+</div>

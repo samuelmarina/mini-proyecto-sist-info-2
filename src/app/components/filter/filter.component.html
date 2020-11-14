@@ -1,0 +1,54 @@
+<ul class="list-group">
+    <li class="list-group-item active">
+        Filtros
+    </li>
+    <li class="list-group-item">
+        <p>Estatus</p>
+        <div class="custom-control custom-radio">
+            <input type="radio" id="aliveRadio" name="statusRadio" class="custom-control-input" value="alive"
+                (change)="statusChangeHandler($event)">
+            <label class="custom-control-label" for="aliveRadio">Alive</label>
+        </div>
+        <div class="custom-control custom-radio">
+            <input type="radio" id="deadRadio" name="statusRadio" class="custom-control-input" value="dead"
+                (change)="statusChangeHandler($event)">
+            <label class="custom-control-label" for="deadRadio">Dead</label>
+        </div>
+        <div class="custom-control custom-radio">
+            <input type="radio" id="unknownRadio" name="statusRadio" class="custom-control-input" value="unknown"
+                (change)="statusChangeHandler($event)">
+            <label class="custom-control-label" for="unknownRadio">Unknown</label>
+        </div>
+    </li>
+    <li class="list-group-item">
+        <p>Género</p>
+        <div class="custom-control custom-radio">
+            <input ngModel type="radio" id="maleRadio" name="genderRadio" class="custom-control-input" value="male"
+                (change)="genderChangeHandler($event)">
+            <label class="custom-control-label" for="maleRadio">Male</label>
+        </div>
+        <div class="custom-control custom-radio">
+            <input type="radio" id="femaleRadio" name="genderRadio" class="custom-control-input" value="female"
+                (change)="genderChangeHandler($event)">
+            <label class="custom-control-label" for="femaleRadio">Female</label>
+        </div>
+        <div class="custom-control custom-radio">
+            <input type="radio" id="unknownGenderRadio" name="genderRadio" class="custom-control-input" value="unknown"
+                (change)="genderChangeHandler($event)">
+            <label class="custom-control-label" for="unknownGenderRadio">Unknown</label>
+        </div>
+    </li>
+    <li class="list-group-item">
+        <p>Tipo</p>
+        <input name="type" id="type" type="text" class="form-control"
+            (change)="typeChangeHandler($event)"
+        >
+    </li>
+    <li class="list-group-item">
+        <p>Especie</p>
+        <input name="species" id="species" type="text" class="form-control"
+            (change)="speciesChangeHandler($event)"
+        >
+    </li>
+    <button class="btn btn-primary" type="button" (click)="filter()">Filtrar</button> 
+</ul>

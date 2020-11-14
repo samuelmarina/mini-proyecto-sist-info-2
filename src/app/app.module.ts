@@ -22,6 +22,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CharacterListComponent } from './components/character-list/character-list.component';
 import { PaginationButtonsComponent } from './components/pagination-buttons/pagination-buttons.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
+import { FilterComponent } from './components/filter/filter.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { SearchBarComponent } from './components/search-bar/search-bar.component
     CharacterCardComponent,
     CharacterListComponent,
     PaginationButtonsComponent,
-    SearchBarComponent
+    SearchBarComponent,
+    FilterComponent
   ],
   imports: [
     BrowserModule,

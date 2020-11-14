@@ -13,9 +13,9 @@ export class CharacterService {
   getCharacters(params) {
     return this.http.get(this.root_url + "?name=" + params.name + 
       "&status=" + params.status +
-      "&species" + params.species + 
-      "&type" + params.type +
-      "&gender" + params.gender +
+      "&species=" + params.species + 
+      "&type=" + params.type +
+      "&gender=" + params.gender +
       "&page=" + params.page);
   }
 

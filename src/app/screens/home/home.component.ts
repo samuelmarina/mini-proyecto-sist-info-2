@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
   searchCharacterCallback: Function;
   nextPageCallback: Function;
   prevPageCallback: Function;
+  filterCharactersCallback: Function;
 
   constructor(
     private charService: CharacterService,
@@ -26,6 +27,7 @@ export class HomeComponent implements OnInit {
     this.searchCharacterCallback = this.searchCharacter.bind(this);
     this.nextPageCallback = this.nextPage.bind(this);
     this.prevPageCallback = this.prevPage.bind(this);
+    this.filterCharactersCallback = this.filterCharacters.bind(this);
 
 
     this.params = {
@@ -57,6 +59,18 @@ export class HomeComponent implements OnInit {
     this.currentPage = 1;
     this.params.name = name;
     this.params.page = this.currentPage;
+    this.setCharacters(this.params);
+  }
+
+  filterCharacters(status, gender, type, species){
+    this.currentPage = 1;
+    this.params.page = this.currentPage;
+    this.params['status'] = status;
+    this.params.gender = gender;
+    this.params['type'] = type;
+    this.params['species'] = species;
+    console.log(this.params);
+    console.log(gender);
     this.setCharacters(this.params);
   }
 
