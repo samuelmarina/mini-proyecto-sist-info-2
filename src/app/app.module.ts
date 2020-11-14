@@ -20,6 +20,7 @@ import { AuthGuardService } from './services/auth-guard/auth-guard.service';
 import { CharacterCardComponent } from './components/character-card/character-card.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CharacterListComponent } from './components/character-list/character-list.component';
+import { PaginationButtonsComponent } from './components/pagination-buttons/pagination-buttons.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { CharacterListComponent } from './components/character-list/character-li
     LoginComponent,
     NavbarComponent,
     CharacterCardComponent,
-    CharacterListComponent
+    CharacterListComponent,
+    PaginationButtonsComponent
   ],
   imports: [
     BrowserModule,

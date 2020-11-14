@@ -1,0 +1,13 @@
+<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-end">
+        <li 
+            class="page-item"
+            >
+            <a class="page-link" (click)="prevPage()">Anterior</a>
+        </li>
+        <li class="page-item"><a class="page-link" aria-disabled="true">{{ page }}</a></li>
+        <li class="page-item">
+            <a class="page-link" (click)="nextPage()">Siguiente</a>
+        </li>
+    </ul>
+</nav>
