@@ -11,24 +11,20 @@ export class PaginationButtonsComponent implements OnInit {
   @Input('page') page: number;
   @Input('changePage') changePage: Function;
   @Input('params') params: Function;
+  @Input('nextPage') nextPage: Function;
+  @Input('prevPage') prevPage: Function;
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  nextPage() {
-    // if(!this.next) return;
-    this.page += 1;
-    this.params['page'] = this.page;
-    this.changePage(this.params);
+  nextPageClicked() {
+    this.nextPage();
   }
 
-  prevPage() {
-    // if(!this.prev) return;
-    this.page -= 1;
-    this.params['page'] = this.page;
-    this.changePage(this.params);
+  prevPageClicked() {
+    this.prevPage();
   }
 
 }

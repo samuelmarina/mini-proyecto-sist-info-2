@@ -15,6 +15,8 @@ export class HomeComponent implements OnInit {
   params;
   setCharactersCallback: Function;
   searchCharacterCallback: Function;
+  nextPageCallback: Function;
+  prevPageCallback: Function;
 
   constructor(
     private charService: CharacterService,
@@ -22,6 +24,9 @@ export class HomeComponent implements OnInit {
     this.currentPage = 1;
     this.setCharactersCallback = this.setCharacters.bind(this);
     this.searchCharacterCallback = this.searchCharacter.bind(this);
+    this.nextPageCallback = this.nextPage.bind(this);
+    this.prevPageCallback = this.prevPage.bind(this);
+
 
     this.params = {
       page: this.currentPage,
@@ -45,7 +50,21 @@ export class HomeComponent implements OnInit {
   }
 
   searchCharacter(name) {
+    this.currentPage = 1;
     this.params.name = name;
+    this.params.page = this.currentPage;
+    this.setCharacters(this.params);
+  }
+
+  nextPage() {
+    this.currentPage += 1;
+    this.params.page = this.currentPage;
+    this.setCharacters(this.params);
+  }
+
+  prevPage() {
+    this.currentPage -= 1;
+    this.params.page = this.currentPage;
     this.setCharacters(this.params);
   }
 }

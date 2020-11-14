@@ -1,3 +1,9 @@
 <search-bar [searchCharacter]="searchCharacterCallback"></search-bar>
-<pagination-buttons [changePage]="setCharactersCallback" [page]="currentPage" [params]="params"></pagination-buttons>
+<pagination-buttons 
+    [changePage]="setCharactersCallback" 
+    [page]="currentPage" 
+    [params]="params"
+    [nextPage]="nextPageCallback"
+    [prevPage]="prevPageCallback"
+    ></pagination-buttons>
 <character-list [characters]="currentCharacters" [showActions]="isLoggedIn"></character-list>
