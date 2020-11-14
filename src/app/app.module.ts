@@ -4,6 +4,7 @@ import { RouterModule } from "@angular/router"
 import {  AngularFireModule } from "@angular/fire"
 import {  AngularFireDatabaseModule } from "@angular/fire/database"
 import {  AngularFireAuthModule } from "@angular/fire/auth"
+import { HttpClientModule } from "@angular/common/http"
 
 
 import { AppComponent } from './app.component';
@@ -30,6 +31,7 @@ import { AuthGuardService } from './services/auth-guard/auth-guard.service';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFireDatabaseModule,
+    HttpClientModule,
     RouterModule.forRoot([
       {
         path: '',
