@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'character-card',
@@ -6,13 +6,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./character-card.component.css']
 })
 export class CharacterCardComponent implements OnInit {
-  character = {
-    imageUrl: "https://rickandmortyapi.com/api/character/avatar/1.jpeg",
-    name: "Rick"
+  @Input('character') character;
+  @Input('showActions') showActions;
+  likes: number;
+  
+  constructor() { 
+    this.getLikes();
   }
-  constructor() { }
 
   ngOnInit(): void {
+  }
+
+  clickLike() {
+    this.character.haveLike =  !this.character.haveLike
+  }
+
+  getLikes() {
+    this.likes = 0;
   }
 
 }

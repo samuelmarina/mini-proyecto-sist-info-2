@@ -2,6 +2,15 @@
     <img [src]="character.imageUrl" class="card-img-top" alt="character.name">
     <div class="card-body">
         <h5 class="card-title">{{ character.name}}</h5>
-        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        <div *ngIf="showActions">
+            <a *ngIf="character.haveLike" (click)="clickLike()">
+                <mat-icon aria-hidden="false" aria-label="Example home icon">favorite</mat-icon>
+            </a>
+            <a *ngIf="!character.haveLike" (click)="clickLike()">
+                <mat-icon aria-hidden="false" aria-label="Example home icon">favorite_border</mat-icon>
+            </a>
+            <p class="card-text"><small class="text-muted">{{ likes }}</small></p>
+        </div>
+        
     </div>
 </div>
