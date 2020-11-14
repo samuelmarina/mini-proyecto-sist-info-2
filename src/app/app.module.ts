@@ -13,6 +13,7 @@ import { CharacterComponent } from './screens/character/character.component';
 import { LoginComponent } from './screens/login/login.component';
 import { environment } from 'src/environments/environment';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { AuthService } from './services/auth/auth.service';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,9 @@ import { NavbarComponent } from './components/navbar/navbar.component';
       },
     ])
   ],
-  providers: [],
+  providers: [
+    AuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
