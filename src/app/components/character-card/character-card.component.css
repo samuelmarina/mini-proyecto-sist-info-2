@@ -1,0 +1,16 @@
+.card {
+  margin-bottom: 20px;
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+a {
+  color: #8bcf21;
+}
+
+#corazon {
+  color: #f675da;
+}
+
+#corazon:hover {
+  cursor: pointer;
+}

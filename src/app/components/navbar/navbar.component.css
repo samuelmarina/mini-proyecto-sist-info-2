@@ -1,0 +1,19 @@
+a {
+  color: white;
+}
+
+nav {
+  background-color: #8bcf21;
+}
+
+button {
+  border-color: white;
+}
+
+#logout {
+  color: black;
+}
+
+#logout:hover {
+  cursor: pointer;
+}

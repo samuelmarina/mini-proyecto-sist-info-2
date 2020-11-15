@@ -8,10 +8,10 @@
         <p>Origin: {{character.origin.name}}</p>
         <p>Created: {{character.created}}</p>
         <a *ngIf="liked">
-            <mat-icon aria-hidden="false" aria-label="Example home icon" (click)="handleClick()">favorite</mat-icon>
+            <mat-icon aria-hidden="false" aria-label="Example home icon" (click)="handleClick()" id="corazon">favorite</mat-icon>
         </a>
         <a *ngIf="!liked">
-            <mat-icon aria-hidden="false" aria-label="Example home icon" (click)="handleClick()">favorite_border</mat-icon>
+            <mat-icon aria-hidden="false" aria-label="Example home icon" (click)="handleClick()" id="corazon">favorite_border</mat-icon>
         </a>
     </div>
 </div>

@@ -1,13 +1,14 @@
-<search-bar [searchCharacter]="searchCharacterCallback"></search-bar>
+<search-bar [searchCharacter]="searchCharacterCallback" id="searchBar" ></search-bar>
 
-<pagination-buttons 
+<pagination-buttons
+    class="botones"
     [changePage]="setCharactersCallback" 
     [page]="currentPage" 
     [params]="params"
     [nextPage]="nextPageCallback"
     [prevPage]="prevPageCallback"
     ></pagination-buttons>
-<div class="row">
+<div class="row fondo">
     <div class="col-3">
         <filter [filterCharacters]="filterCharactersCallback"></filter>
     </div>

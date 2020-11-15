@@ -1,0 +1,11 @@
+a {
+  color: #8bcf21;
+  border-color: #8bcf21;
+}
+
+a:hover {
+  cursor: pointer;
+  color: white;
+  background-color: #8bcf21;
+  border-color: #8bcf21;
+}

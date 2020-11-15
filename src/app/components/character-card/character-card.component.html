@@ -4,10 +4,10 @@
         <a [routerLink]="['/character/', character.id]"><h5 class="card-title">{{ character.name }}</h5></a>
         <div *ngIf="showActions">
             <a *ngIf="character.haveLike" (click)="clickLike()">
-                <mat-icon aria-hidden="false" aria-label="Example home icon">favorite</mat-icon>
+                <mat-icon aria-hidden="false" aria-label="Example home icon" id="corazon">favorite</mat-icon>
             </a>
             <a *ngIf="!character.haveLike" (click)="clickLike()">
-                <mat-icon aria-hidden="false" aria-label="Example home icon">favorite_border</mat-icon>
+                <mat-icon aria-hidden="false" aria-label="Example home icon" id="corazon">favorite_border</mat-icon>
             </a>
             <p class="card-text"><small class="text-muted">{{ likes }}</small></p>
         </div>
