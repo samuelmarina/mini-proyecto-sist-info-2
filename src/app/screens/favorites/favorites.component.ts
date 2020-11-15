@@ -13,7 +13,7 @@ import { FavoritesService } from 'src/app/services/favorites/favorites.service';
 export class FavoritesComponent implements OnInit {
   characters: Character[];
   user;
-  favCharacters = new Set();
+  favCharacters: any[];
   currentCharacters;
   currentPage = 1;
   params;
@@ -38,10 +38,9 @@ export class FavoritesComponent implements OnInit {
       if(user){
         this.user = user;
         this.favService.getAll(user).valueChanges().subscribe(res => {
-          res.forEach(item => {
-            this.favCharacters.add(item);
-          })
-          this.setCharacters(this.params);
+          this.favCharacters = res;
+          // console.log(this.favCharacters);
+          this.setCharacters();
         });
       }
     })
@@ -50,32 +49,15 @@ export class FavoritesComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  setCharacters(params) {
+  setCharacters() {
     this.currentCharacters = [];
-    this.charService.getCharacters(params).pipe(take(1)).subscribe(res => {
-      res['results'].forEach(obj => {
-        let aux = obj as Character;
-        if(this.favCharacters.has(obj.id)){
-          aux.haveLike = true;
-        }
-        else{
-          aux.haveLike = false;
-        }
-        this.currentCharacters.push(aux);
-      })
+    this.favCharacters.forEach(x => {
+      this.charService.getCharacterById(x).subscribe(k => {
+        let aux = k as Character;
+        aux.haveLike = true;
+        this.currentCharacters.push(k);
+      });
     })
-  }
-
-  nextPage() {
-    this.currentPage += 1;
-    this.params.page = this.currentPage;
-    this.setCharacters(this.params);
-  }
-
-  prevPage() {
-    this.currentPage -= 1;
-    this.params.page = this.currentPage;
-    this.setCharacters(this.params);
   }
 
 }
