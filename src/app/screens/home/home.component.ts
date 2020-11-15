@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { take } from 'rxjs/operators';
 import { Character } from 'src/app/schemas/character';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { CharacterService } from 'src/app/services/character/character.service';
@@ -63,7 +64,8 @@ export class HomeComponent implements OnInit {
   }
 
   setCharacters(params) {
-    this.charService.getCharacters(params).subscribe(res => {
+    this.currentCharacters = [];
+    this.charService.getCharacters(params).pipe(take(1)).subscribe(res => {
       res['results'].forEach(obj => {
         let aux = obj as Character;
         if(this.favCharacters.has(obj.id)){

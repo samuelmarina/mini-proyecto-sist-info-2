@@ -28,7 +28,6 @@ export class CharacterCardComponent implements OnInit {
       this.favService.dislike(this.user, this.character.id) :
       this.favService.like(this.user, this.character.id);
 
-    this.character.haveLike = !this.character.haveLike;
   }
 
   getLikes() {
