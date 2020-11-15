@@ -9,6 +9,7 @@ import { Character } from 'src/app/schemas/character';
 export class CharacterListComponent implements OnInit {
   @Input('characters') characters: Character[];
   @Input('showActions') showActions: boolean;
+  @Input('user') user;
 
   constructor() { }
 

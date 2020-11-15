@@ -1,5 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
+import firebase from "firebase/app"
+
 import { Character } from 'src/app/schemas/character';
+import { FavoritesService } from 'src/app/services/favorites/favorites.service';
 
 @Component({
   selector: 'character-card',
@@ -9,9 +12,10 @@ import { Character } from 'src/app/schemas/character';
 export class CharacterCardComponent implements OnInit {
   @Input('character') character: Character;
   @Input('showActions') showActions;
+  @Input('user') user: firebase.User;
   likes: number;
   
-  constructor() { 
+  constructor(private favService: FavoritesService) { 
     this.getLikes();
   }
 
@@ -19,7 +23,12 @@ export class CharacterCardComponent implements OnInit {
   }
 
   clickLike() {
-    this.character.haveLike =  !this.character.haveLike
+
+    this.character.haveLike ? 
+      this.favService.dislike(this.user, this.character.id) :
+      this.favService.like(this.user, this.character.id);
+
+    this.character.haveLike = !this.character.haveLike;
   }
 
   getLikes() {

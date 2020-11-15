@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Character } from 'src/app/schemas/character';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { CharacterService } from 'src/app/services/character/character.service';
+import { FavoritesService } from 'src/app/services/favorites/favorites.service';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +10,9 @@ import { CharacterService } from 'src/app/services/character/character.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  currentCharacters: Character[];
+  user;
+  currentCharacters: Character[] = [];
+  favCharacters = new Set();
   currentPage: number;
   isLoggedIn: boolean;
   params;
@@ -20,6 +23,7 @@ export class HomeComponent implements OnInit {
   filterCharactersCallback: Function;
 
   constructor(
+    private favService: FavoritesService,
     private charService: CharacterService,
     private auth: AuthService) { 
     this.currentPage = 1;
@@ -39,11 +43,20 @@ export class HomeComponent implements OnInit {
       gender: ""
     }
 
-    this.setCharacters(this.params);
-
     auth.user$.subscribe(user => {
       this.isLoggedIn = user ? true : false;
+
+      if(user){
+        this.user = user;
+        this.favService.getAll(user).valueChanges().subscribe(res => {
+          res.forEach(item => {
+            this.favCharacters.add(item);
+          })
+          this.setCharacters(this.params);
+        });
+      }
     })
+
   }
 
   ngOnInit(): void {
@@ -51,7 +64,17 @@ export class HomeComponent implements OnInit {
 
   setCharacters(params) {
     this.charService.getCharacters(params).subscribe(res => {
-      this.currentCharacters = res['results'] as Character[];
+      res['results'].forEach(obj => {
+        let aux = obj as Character;
+        if(this.favCharacters.has(obj.id)){
+          aux.haveLike = true;
+        }
+        else{
+          aux.haveLike = false;
+        }
+        this.currentCharacters.push(aux);
+      })
+      // this.currentCharacters = res['results'] as Character[];
     })
   }
 
