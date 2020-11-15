@@ -7,11 +7,11 @@
         <p>Gender: {{character.gender}}</p>
         <p>Origin: {{character.origin.name}}</p>
         <p>Created: {{character.created}}</p>
-        <a *ngIf="character.haveLike">
-            <mat-icon aria-hidden="false" aria-label="Example home icon">favorite</mat-icon>
+        <a *ngIf="liked">
+            <mat-icon aria-hidden="false" aria-label="Example home icon" (click)="handleClick()">favorite</mat-icon>
         </a>
-        <a *ngIf="!character.haveLike">
-            <mat-icon aria-hidden="false" aria-label="Example home icon">favorite_border</mat-icon>
+        <a *ngIf="!liked">
+            <mat-icon aria-hidden="false" aria-label="Example home icon" (click)="handleClick()">favorite_border</mat-icon>
         </a>
     </div>
 </div>
